@@ -140,11 +140,6 @@
 <body>
 <nav>
     <div class="profile-info">
-        <!--
-          Аватарка ищется в папке static/avatars/
-          Формат пути: /static/avatars/имя_файла
-          Если аватарки нет - используется default.png
-        -->
         {% if current_user.avatar %}
         <img src="{{ url_for('static', filename='avatars/' + current_user.avatar) }}" class="profile-avatar"
              alt="Аватар">

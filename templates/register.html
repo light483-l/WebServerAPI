@@ -66,6 +66,21 @@
             color: #d9534f;
             font-size: 14px;
         }
+        /* Новые стили для аватарки */
+        .avatar-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 10px auto;
+            display: block;
+            border: 2px solid #ddd;
+        }
+        .avatar-label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -80,7 +95,7 @@
 <div class="content">
     <h1>Регистрация</h1>
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
 
         <div>
@@ -106,8 +121,27 @@
             {% endif %}
         </div>
 
+        <div>
+            <label class="avatar-label">Аватарка:</label>
+            <img id="avatar-preview" src="#" alt="Превью аватарки" class="avatar-preview" style="display:none;">
+            <input type="file" name="avatar" id="avatar" accept="image/*">
+        </div>
+
         <button type="submit">Зарегистрироваться</button>
     </form>
 </div>
+
+<script>
+    document.getElementById('avatar').addEventListener('change', function(e) {
+        const preview = document.getElementById('avatar-preview');
+        const file = e.target.files[0];
+        if (file) {
+            preview.style.display = 'block';
+            preview.src = URL.createObjectURL(file);
+        } else {
+            preview.style.display = 'none';
+        }
+    });
+</script>
 </body>
 </html>

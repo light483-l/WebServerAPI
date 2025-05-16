@@ -4,7 +4,7 @@ from pprint import pprint
 
 # должно быть таким же, как в app.py
 API_URL = "http://localhost:8080"
-API_KEY = "sk_test_4f2b7c9e1d3a6f8b5c2d1e0f3a7b6c8d"
+API_KEY = "your-secret-api-key-here"
 USER_ID = "1"
 
 
